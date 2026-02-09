@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  flask-app:
+    image: flask:latest              # image Docker utilisée
+    container_name: flask         # nom explicite du conteneur
+
+    ports:
+      - "5000:5000"                   # port exposé (hôte:conteneur)
+
+    environment:
+      APP_MESSAGE: "first personal deploy of Docker cont"
+      FLASK_ENV: "development"
+      FLASK_DEBUG: "1"
+
+    restart: unless-stopped
